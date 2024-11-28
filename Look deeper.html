@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look Deeper!</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Container that holds the title, subtitle, and image */
+        .content-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Left side: Title */
+        .text-container {
+            width: 33%; /* Taking up one-third of the screen */
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        /* Title style */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 3rem;
+            color: #ff0974;
+            margin: 0;
+            z-index: 2;
+        }
+
+        /* Bottom-right corner subtitle style */
+        .subtitle {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: black;
+            white-space: nowrap; /* Ensure subtitle stays on a single line */
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background-color: rgba(255, 255, 255, 0.5); /* White box with 50% transparency */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Bold part of the subtitle */
+        .subtitle .bold {
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Right side: Image container */
+        .image-container {
+            width: 67%; /* Taking up the remaining two-thirds of the screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Image styling */
+        img {
+            width: 100%; /* Ensures the image fills its container */
+            height: auto;
+            transition: transform 20s ease-out; /* 20 seconds for the zoom effect */
+            transform: scale(0.4); /* Start the image zoomed out */
+        }
+
+        img.zoomed-in {
+            transform: scale(12); /* Zoom-in by 12 times */
+        }
+    </style>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Content container holding title, subtitle, and image -->
+    <div class="content-container">
+        <!-- Left side with title -->
+        <div class="text-container">
+            <h1>Look Deeper!</h1>
+        </div>
+
+        <!-- Right side with image -->
+        <div class="image-container" onclick="zoomInImage()">
+            <!-- Replace this with your actual image URL or file path -->
+            <img id="artwork" src="human collage.png" alt="A collage of a duck swimming with silhouettes of humans affected by flooding in Humber Estuary">
+        </div>
+    </div>
+
+    <!-- Subtitle in the bottom-right corner -->
+    <div class="subtitle">
+        <div class="bold">a day at the beach, 2024 1m x 1m</div>
+        Depicts 400,000 silhouettes, the estimated number of humans that could be affected by flooding in the Humber Estuary by 2050 (2017 statistic)
+    </div>
+
+    <script>
+        function zoomInImage() {
+            const image = document.getElementById('artwork');
+            image.classList.toggle('zoomed-in');
+        }
+    </script>
+
+</body>
+</html>
